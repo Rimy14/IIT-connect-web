@@ -4,47 +4,386 @@
 @import 'tailwindcss/utilities';
 /* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL */
 
-/* Custom animation delays */
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
+/* ============================================
+   ADVANCED STYLING SYSTEM
+   ============================================ */
 
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
+/* Animation Delays */
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-3000 { animation-delay: 3s; }
+.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-5000 { animation-delay: 5s; }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom selection color */
+/* Custom selection */
 ::selection {
-  background-color: rgba(220, 38, 38, 0.3);
+  background-color: rgba(220, 38, 38, 0.4);
+  color: white;
 }
 
-/* Hide scrollbar but allow scrolling */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================
+   NOISE TEXTURE OVERLAY
+   ============================================ */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* ============================================
+   AURORA GRADIENT BACKGROUND
+   ============================================ */
+.aurora-bg {
+  background: 
+    radial-gradient(ellipse 80% 80% at 50% -20%, rgba(220, 38, 38, 0.15), transparent),
+    radial-gradient(ellipse 60% 60% at 0% 50%, rgba(139, 0, 0, 0.1), transparent),
+    radial-gradient(ellipse 60% 60% at 100% 50%, rgba(220, 38, 38, 0.08), transparent);
 }
 
-/* Glass morphism effect */
+/* ============================================
+   TEXT SHIMMER EFFECT
+   ============================================ */
+.shimmer-text {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 1) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 1) 55%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; }
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-red {
+  box-shadow: 
+    0 0 20px rgba(220, 38, 38, 0.3),
+    0 0 40px rgba(220, 38, 38, 0.2),
+    0 0 60px rgba(220, 38, 38, 0.1);
+}
+
+.glow-red-intense {
+  box-shadow: 
+    0 0 30px rgba(220, 38, 38, 0.5),
+    0 0 60px rgba(220, 38, 38, 0.3),
+    0 0 90px rgba(220, 38, 38, 0.2),
+    0 0 120px rgba(220, 38, 38, 0.1);
+}
+
+.text-glow {
+  text-shadow: 
+    0 0 20px rgba(220, 38, 38, 0.5),
+    0 0 40px rgba(220, 38, 38, 0.3);
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Gradient text */
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   GRADIENT TEXT VARIANTS
+   ============================================ */
 .gradient-text {
   background: linear-gradient(to bottom, #ffffff, #6b7280);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-red {
+  background: linear-gradient(135deg, #f87171, #dc2626, #991b1b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   3D CARD TILT EFFECT
+   ============================================ */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-card-inner {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tilt-card:hover .tilt-card-inner {
+  transform: rotateY(5deg) rotateX(5deg) scale(1.02);
+}
+
+/* ============================================
+   FLOATING ANIMATION
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(1deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  75% { transform: translateY(-15px) rotate(0.5deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 7s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* ============================================
+   PULSE GLOW ANIMATION
+   ============================================ */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(220, 38, 38, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ============================================
+   BORDER GRADIENT ANIMATION
+   ============================================ */
+@keyframes border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-border {
+  position: relative;
+  background: linear-gradient(90deg, #dc2626, #991b1b, #7f1d1d, #991b1b, #dc2626);
+  background-size: 300% 300%;
+  animation: border-rotate 4s linear infinite;
+  padding: 2px;
+  border-radius: 9999px;
+}
+
+.animated-border > * {
+  background: #0a0a0a;
+  border-radius: 9999px;
+}
+
+/* ============================================
+   MORPHING BLOB ANIMATION
+   ============================================ */
+@keyframes morph {
+  0%, 100% { 
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg);
+  }
+  25% { 
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% { 
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    transform: rotate(180deg);
+  }
+  75% { 
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+  }
+}
+
+.animate-morph {
+  animation: morph 15s ease-in-out infinite;
+}
+
+/* ============================================
+   SPOTLIGHT CURSOR EFFECT
+   ============================================ */
+.spotlight-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight {
+  pointer-events: none;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(220, 38, 38, 0.15) 0%,
+    rgba(220, 38, 38, 0.05) 30%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* ============================================
+   STAGGER CHILDREN ANIMATION
+   ============================================ */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: stagger-in 0.5s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes stagger-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   MAGNETIC BUTTON EFFECT
+   ============================================ */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ============================================
+   REVEAL ANIMATION
+   ============================================ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal-up {
+  animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   GRID PATTERN BACKGROUND
+   ============================================ */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================
+   DOT PATTERN BACKGROUND
+   ============================================ */
+.dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ============================================
+   TYPING CURSOR
+   ============================================ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+/* ============================================
+   SMOOTH UNDERLINE
+   ============================================ */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #dc2626, #991b1b);
+  transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   CLIP PATH REVEAL
+   ============================================ */
+@keyframes clip-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.clip-reveal {
+  animation: clip-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
