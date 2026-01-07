@@ -99,7 +99,7 @@ export function App() {
           >
             <div className="text-center">
               <p className="text-2xl md:text-4xl font-bold text-white">2,500+</p>
-              <p className="text-gray-500 text-sm">Active Students</p>
+              <p className="text-gray-500 text-sm">Students</p>
             </div>
             <div className="text-center">
               <p className="text-2xl md:text-4xl font-bold text-white">50+</p>
@@ -320,7 +320,7 @@ export function App() {
 
           {/* Benefits */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-2xl mx-auto">
-            {['Free for students', 'Verified & secure', '2,500+ members', 'Web & mobile'].map((benefit, i) => (
+            {['Free for students', 'Verified & secure', '2,500+ members', 'Mobile App'].map((benefit, i) => (
               <div key={i} className="flex items-center justify-center gap-2 text-sm text-gray-400">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                 {benefit}
