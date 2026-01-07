@@ -2,8 +2,28 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
+const navLinks = [
+  { name: 'Features', href: '#features' },
+  { name: 'Problems', href: '#problems' },
+  { name: 'How It Works', href: '#how-it-works' },
+  { name: 'About', href: '#about' },
+];
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const offsetTop = element.offsetTop - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <motion.nav
@@ -15,7 +35,11 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto">
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-4 md:px-6 py-3 flex items-center justify-between shadow-lg shadow-black/20">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="flex items-center gap-2 cursor-pointer"
+          >
             <img 
               src="/imgs/Gemini_Generated_Image_ujxpequjxpequjxp.png" 
               alt="IIT Connect Logo" 
@@ -24,26 +48,32 @@ export function Navigation() {
             <span className="text-white font-bold text-lg md:text-xl tracking-tight">
               IIT Connect
             </span>
-          </div>
+          </a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
-            {['Features', 'Community', 'Events', 'About'].map((item) => (
+            {navLinks.map((link) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
               >
-                {item}
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-red-500 transition-all group-hover:w-full" />
               </a>
             ))}
           </div>
 
           {/* CTA */}
           <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-2 rounded-full font-semibold text-sm hover:from-red-500 hover:to-red-600 transition-all shadow-lg shadow-red-600/25">
+            <a 
+              href="#about" 
+              onClick={(e) => handleNavClick(e, '#about')}
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-2 rounded-full font-semibold text-sm hover:from-red-500 hover:to-red-600 transition-all shadow-lg shadow-red-600/25 cursor-pointer"
+            >
               Contact Us
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -64,19 +94,23 @@ export function Navigation() {
           className="absolute top-20 left-4 right-4 p-4 bg-background/95 backdrop-blur-xl border border-white/10 rounded-2xl md:hidden"
         >
           <div className="flex flex-col gap-4">
-            {['Features', 'Community', 'Events', 'About'].map((item) => (
+            {navLinks.map((link) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={link.name}
+                href={link.href}
                 className="text-gray-300 hover:text-white font-medium py-2"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
               >
-                {item}
+                {link.name}
               </a>
             ))}
-            <button className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 rounded-xl font-bold mt-2">
+            <a 
+              href="#about"
+              onClick={(e) => handleNavClick(e, '#about')}
+              className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 rounded-xl font-bold mt-2 text-center block"
+            >
               Contact Us
-            </button>
+            </a>
           </div>
         </motion.div>
       )}

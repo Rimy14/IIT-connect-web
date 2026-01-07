@@ -19,7 +19,19 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  Mail
+  Mail,
+  AlertTriangle,
+  MessagesSquare,
+  GraduationCap,
+  Building2,
+  CheckCircle2,
+  UserCheck,
+  Smartphone,
+  Lock,
+  Eye,
+  Globe,
+  Rocket,
+  Heart
 } from 'lucide-react';
 
 // Animated gradient orb component
@@ -469,6 +481,300 @@ export function App() {
         </div>
       </section>
 
+      {/* Problems Section */}
+      <section id="problems" className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        {/* Background accent */}
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-red-600/5 rounded-full blur-[150px] -translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto">
+          <RevealSection className="mb-16 md:mb-20 text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-red-600" />
+              <span className="text-xs uppercase tracking-[0.3em] text-red-500 font-medium">The Problem</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-red-600" />
+            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+              University life is <span className="text-red-500">fragmented</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+              Students juggle multiple platforms daily. WhatsApp groups, Instagram, LinkedIn, 
+              email—important information gets lost in the chaos.
+            </p>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: MessagesSquare,
+                title: 'Too Many Platforms',
+                description: 'Clubs and unions create countless WhatsApp groups daily. Important updates get buried in the noise.',
+                color: 'from-red-500/20 to-red-900/20',
+                iconColor: 'text-red-400',
+                borderColor: 'border-red-500/20'
+              },
+              {
+                icon: Users,
+                title: 'SDGP Group Formation',
+                description: 'Finding reliable teammates for group projects is stressful and inefficient without a proper system.',
+                color: 'from-orange-500/20 to-orange-900/20',
+                iconColor: 'text-orange-400',
+                borderColor: 'border-orange-500/20'
+              },
+              {
+                icon: GraduationCap,
+                title: 'Kuppi Sessions Chaos',
+                description: 'Study sessions are hard to organize and discover. Students miss out on valuable peer learning.',
+                color: 'from-yellow-500/20 to-yellow-900/20',
+                iconColor: 'text-yellow-400',
+                borderColor: 'border-yellow-500/20'
+              },
+              {
+                icon: Building2,
+                title: 'Alumni Disconnect',
+                description: 'No platform connects current students with IIT alumni working at top tech companies.',
+                color: 'from-blue-500/20 to-blue-900/20',
+                iconColor: 'text-blue-400',
+                borderColor: 'border-blue-500/20'
+              },
+              {
+                icon: FileText,
+                title: 'Scattered Resources',
+                description: 'Notes, past papers, and academic materials are spread across drives, groups, and personal folders.',
+                color: 'from-purple-500/20 to-purple-900/20',
+                iconColor: 'text-purple-400',
+                borderColor: 'border-purple-500/20'
+              },
+              {
+                icon: AlertTriangle,
+                title: 'No Central Hub',
+                description: 'Events, announcements, and deadlines come from multiple sources—missing one could cost you.',
+                color: 'from-pink-500/20 to-pink-900/20',
+                iconColor: 'text-pink-400',
+                borderColor: 'border-pink-500/20'
+              },
+            ].map((problem, i) => (
+              <RevealSection key={i} delay={0.1 * i}>
+                <motion.div 
+                  whileHover={{ y: -5, borderColor: 'rgba(255,255,255,0.15)' }}
+                  className="p-6 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm h-full transition-all"
+                >
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${problem.color} flex items-center justify-center mb-4 ${problem.borderColor} border`}>
+                    <problem.icon className={`w-5 h-5 ${problem.iconColor}`} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{problem.title}</h3>
+                  <p className="text-gray-400">{problem.description}</p>
+                </motion.div>
+              </RevealSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-900/5 to-transparent pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative">
+          <RevealSection className="mb-16 md:mb-20 text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-red-600" />
+              <span className="text-xs uppercase tracking-[0.3em] text-red-500 font-medium">How It Works</span>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-red-600" />
+            </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Simple. Secure. <span className="text-red-500">Seamless.</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+              From sign-up to connecting with the entire IIT community—it only takes minutes.
+            </p>
+          </RevealSection>
+
+          {/* Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {/* Connection Line */}
+            <div className="hidden md:block absolute top-20 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-red-600/50 via-red-500/50 to-red-600/50" />
+            
+            {[
+              {
+                step: '01',
+                icon: Mail,
+                title: 'Sign up with IIT Email',
+                description: 'Use your official @iit.ac.lk email to create a verified account. Only IIT students and staff allowed.'
+              },
+              {
+                step: '02',
+                icon: UserCheck,
+                title: 'Auto Profile Creation',
+                description: 'Your profile is automatically populated with your department, batch, and tutorial group info.'
+              },
+              {
+                step: '03',
+                icon: Users,
+                title: 'Join Your Communities',
+                description: 'Automatically added to your tutorial group. Join clubs, departments, and interest groups.'
+              },
+              {
+                step: '04',
+                icon: Rocket,
+                title: 'Start Connecting',
+                description: 'Chat, share resources, organize Kuppi sessions, and never miss an important update again.'
+              },
+            ].map((item, i) => (
+              <RevealSection key={i} delay={0.15 * i}>
+                <div className="text-center relative">
+                  {/* Step number bubble */}
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center border-4 border-background relative z-10 shadow-lg shadow-red-600/30"
+                  >
+                    <item.icon className="w-7 h-7 text-white" />
+                  </motion.div>
+                  <span className="text-xs text-red-500 font-bold tracking-widest mb-2 block">{item.step}</span>
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-400 text-sm">{item.description}</p>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+
+          {/* Key Platform Features */}
+          <RevealSection className="mt-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { icon: Lock, label: 'Verified Accounts Only', desc: 'No anonymous profiles' },
+                { icon: Eye, label: 'Privacy Controls', desc: 'You decide what to share' },
+                { icon: Smartphone, label: 'Mobile First', desc: 'iOS & Android apps' },
+                { icon: Globe, label: 'Expandable', desc: 'Other universities soon' },
+              ].map((feature, i) => (
+                <motion.div 
+                  key={i}
+                  whileHover={{ y: -3, backgroundColor: 'rgba(255,255,255,0.05)' }}
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 transition-all"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-red-600/10 flex items-center justify-center shrink-0">
+                    <feature.icon className="w-5 h-5 text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-sm">{feature.label}</h4>
+                    <p className="text-xs text-gray-500">{feature.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-red-600/5 rounded-full blur-[150px] translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left content */}
+            <RevealSection>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-[1px] w-12 bg-gradient-to-r from-red-600 to-transparent" />
+                <span className="text-xs uppercase tracking-[0.3em] text-red-500 font-medium">About</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Built by IIT students, <br />
+                <span className="text-red-500">for IIT students.</span>
+              </h2>
+              <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+                IIT Connect was born from a simple observation: university life shouldn't be this scattered. 
+                We're a team of passionate IIT students who wanted to create the platform we wished existed 
+                when we started our journey.
+              </p>
+              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                Our mission is to bring everything—communities, resources, events, and connections—into 
+                one beautiful, professional platform that maintains the professionalism expected at IIT 
+                while allowing students to truly connect.
+              </p>
+              
+              {/* Values */}
+              <div className="space-y-4">
+                {[
+                  { icon: Shield, text: 'Security first—verified IIT emails only, no anonymous posts' },
+                  { icon: Heart, text: 'Community-driven—shaped by student feedback' },
+                  { icon: Rocket, text: 'Future-ready—expandable to other universities' },
+                ].map((value, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-red-600/10 flex items-center justify-center shrink-0">
+                      <value.icon className="w-4 h-4 text-red-400" />
+                    </div>
+                    <p className="text-gray-300">{value.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </RevealSection>
+
+            {/* Right content - Stats & Contact */}
+            <RevealSection delay={0.2}>
+              <div className="space-y-6">
+                {/* Mission Card */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="p-8 rounded-3xl bg-gradient-to-br from-red-600/10 to-red-900/5 border border-red-500/10"
+                >
+                  <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    To become the central hub for university communities across Sri Lanka—starting with IIT, 
+                    then expanding to connect students nationwide. Every student deserves a platform that 
+                    respects their privacy while fostering genuine connections.
+                  </p>
+                </motion.div>
+
+                {/* Quick Stats */}
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { value: '2026', label: 'Founded' },
+                    { value: 'IIT', label: 'First Campus' },
+                    { value: 'CS-34', label: 'Built by' },
+                    { value: '∞', label: 'Possibilities' },
+                  ].map((stat, i) => (
+                    <motion.div 
+                      key={i}
+                      whileHover={{ y: -3 }}
+                      className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-center"
+                    >
+                      <p className="text-2xl md:text-3xl font-bold text-red-400">{stat.value}</p>
+                      <p className="text-sm text-gray-500">{stat.label}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Contact Info */}
+                <motion.div 
+                  whileHover={{ borderColor: 'rgba(255,255,255,0.15)' }}
+                  className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 transition-all"
+                >
+                  <h4 className="font-bold mb-4">Get in Touch</h4>
+                  <div className="space-y-3 text-sm text-gray-400">
+                    <p className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-red-500" />
+                      support@iitconnect.lk
+                    </p>
+                    <p>
+                      Informatics Institute of Technology<br />
+                      57, Ramakrishna Road, Colombo 06
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </RevealSection>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 md:py-32 px-4 text-center relative overflow-hidden">
         {/* Background effects */}
@@ -555,10 +861,15 @@ export function App() {
             <div>
               <h4 className="text-white font-semibold mb-4">Product</h4>
               <ul className="space-y-3 text-sm text-gray-500">
-                {['Features', 'Community', 'Events'].map((item, i) => (
+                {[
+                  { name: 'Features', href: '#features' },
+                  { name: 'Problems', href: '#problems' },
+                  { name: 'How It Works', href: '#how-it-works' },
+                  { name: 'About', href: '#about' },
+                ].map((item, i) => (
                   <li key={i}>
-                    <a href={`#${item.toLowerCase()}`} className="hover:text-white transition-colors hover:pl-1 inline-block">
-                      {item}
+                    <a href={item.href} className="hover:text-white transition-colors hover:pl-1 inline-block">
+                      {item.name}
                     </a>
                   </li>
                 ))}
