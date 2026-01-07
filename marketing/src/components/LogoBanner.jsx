@@ -7,8 +7,8 @@ const logos = [
   { src: '/imgs/image.png', alt: 'SDGP', name: 'SDGP' },
 ];
 
-// Duplicate the array for seamless infinite scroll
-const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+// Duplicate many times for truly seamless infinite scroll
+const duplicatedLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
 
 export function LogoBanner() {
   return (
@@ -45,43 +45,76 @@ export function LogoBanner() {
         {/* Right gradient mask */}
         <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling container */}
-        <div className="flex overflow-hidden">
+        {/* Scrolling container - First Row (Left to Right) */}
+        <div className="flex overflow-hidden mb-6">
           <motion.div
             animate={{ x: ['0%', '-50%'] }}
+            transition={{
+              x: {
+                duration: 25,
+                repeat: Infinity,
+                ease: 'linear',
+                repeatType: 'loop',
+              },
+            }}
+            className="flex gap-8 md:gap-12 items-center shrink-0"
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <LogoCard key={`row1-${index}`} logo={logo} />
+            ))}
+          </motion.div>
+          {/* Duplicate for seamless loop */}
+          <motion.div
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{
+              x: {
+                duration: 25,
+                repeat: Infinity,
+                ease: 'linear',
+                repeatType: 'loop',
+              },
+            }}
+            className="flex gap-8 md:gap-12 items-center shrink-0"
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <LogoCard key={`row1-dup-${index}`} logo={logo} />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Scrolling container - Second Row (Right to Left) */}
+        <div className="flex overflow-hidden">
+          <motion.div
+            animate={{ x: ['-50%', '0%'] }}
             transition={{
               x: {
                 duration: 30,
                 repeat: Infinity,
                 ease: 'linear',
+                repeatType: 'loop',
               },
             }}
-            className="flex gap-8 md:gap-16 items-center"
+            className="flex gap-8 md:gap-12 items-center shrink-0"
           >
             {duplicatedLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 group relative"
-              >
-                <div className="relative">
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-red-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Logo container */}
-                  <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center p-4 group-hover:border-red-500/30 transition-all duration-300 group-hover:scale-105">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
-                  </div>
-                  
-                  {/* Label */}
-                  <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-xs text-gray-400 whitespace-nowrap">{logo.name}</span>
-                  </div>
-                </div>
-              </div>
+              <LogoCard key={`row2-${index}`} logo={logo} />
+            ))}
+          </motion.div>
+          {/* Duplicate for seamless loop */}
+          <motion.div
+            animate={{ x: ['-50%', '0%'] }}
+            transition={{
+              x: {
+                duration: 30,
+                repeat: Infinity,
+                ease: 'linear',
+                repeatType: 'loop',
+              },
+            }}
+            className="flex gap-8 md:gap-12 items-center shrink-0"
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <LogoCard key={`row2-dup-${index}`} logo={logo} />
             ))}
           </motion.div>
         </div>
@@ -91,5 +124,39 @@ export function LogoBanner() {
       <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-red-600/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-gray-600/5 rounded-full blur-[100px] pointer-events-none" />
     </section>
+  );
+}
+
+// Extracted LogoCard component for reusability
+function LogoCard({ logo }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      className="flex-shrink-0 group relative cursor-pointer"
+    >
+      <div className="relative">
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-red-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Logo container */}
+        <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center p-3 md:p-4 group-hover:border-red-500/30 transition-all duration-300 group-hover:bg-white/10">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+            loading="lazy"
+          />
+        </div>
+        
+        {/* Label */}
+        <motion.div 
+          initial={{ opacity: 0, y: 5 }}
+          whileHover={{ opacity: 1, y: 0 }}
+          className="absolute -bottom-6 left-1/2 -translate-x-1/2"
+        >
+          <span className="text-xs text-gray-400 whitespace-nowrap font-medium">{logo.name}</span>
+        </motion.div>
+      </div>
+    </motion.div>
   );
 }

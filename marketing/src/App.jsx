@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { Navigation } from './components/Navigation';
 import { BentoCard } from './components/BentoCard';
 import { LogoBanner } from './components/LogoBanner';
+import { CustomCursor } from './components/CustomCursor';
 import { 
   Users, 
   Calendar, 
@@ -150,6 +151,9 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-background text-white selection:bg-red-500/30 relative">
+      {/* Custom Cursor */}
+      <CustomCursor />
+      
       {/* Progress bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-red-600 via-red-500 to-red-600 origin-left z-[100]"
