@@ -168,7 +168,7 @@ export function App() {
       {/* Hero Section */}
       <section 
         ref={heroRef} 
-        className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 overflow-hidden"
+        className="relative min-h-[calc(100vh-2rem)] flex flex-col items-center justify-center px-4 pt-28 pb-8 overflow-hidden"
       >
         {/* Aurora background */}
         <div className="absolute inset-0 aurora-bg opacity-50" />
@@ -200,7 +200,7 @@ export function App() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm hover:bg-white/10 transition-colors cursor-default"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-5 backdrop-blur-sm hover:bg-white/10 transition-colors cursor-default"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -217,7 +217,7 @@ export function App() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-[8rem] font-black tracking-tighter mb-8 leading-[0.85]"
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-5 leading-[0.9]"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-gray-500 block">
               Your University,
@@ -232,7 +232,7 @@ export function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-medium leading-relaxed px-4"
+            className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-8 font-medium leading-relaxed px-4"
           >
             Everything you need for university life in one place. Connect with peers, 
             organize study sessions, share resources, and stay updated with campus events.
@@ -269,7 +269,7 @@ export function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex items-center justify-center gap-8 md:gap-16 mt-16 pt-8 border-t border-white/10"
+            className="flex items-center justify-center gap-8 md:gap-16 mt-10 pt-6 border-t border-white/10"
           >
             {[
               { value: '2500', suffix: '+', label: 'Students' },
@@ -284,21 +284,6 @@ export function App() {
               </div>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-gray-500 uppercase tracking-widest">Scroll</span>
-          <motion.div 
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-[1px] h-12 bg-gradient-to-b from-gray-500 to-transparent" 
-          />
         </motion.div>
       </section>
 
