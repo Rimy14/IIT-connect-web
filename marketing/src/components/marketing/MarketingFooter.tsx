@@ -6,7 +6,10 @@ export function MarketingFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">IIT Connect</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/imgs/Gemini_Generated_Image_ujxpequjxpequjxp.png" alt="IIT Connect Logo" className="w-14 h-14 rounded-lg object-cover" />
+              <h3 className="text-2xl font-bold text-white">IIT Connect</h3>
+            </div>
             <p className="text-sm text-gray-400 mb-4">
               Your university, connected. Everything you need for university
               life in one place.
@@ -44,11 +47,6 @@ export function MarketingFooter() {
               <li>
                 <a href="#testimonials" className="hover:text-white transition-colors">
                   Testimonials
-                </a>
-              </li>
-              <li>
-                <a href="/app" className="hover:text-white transition-colors">
-                  Launch App
                 </a>
               </li>
             </ul>
