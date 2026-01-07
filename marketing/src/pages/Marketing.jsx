@@ -7,8 +7,10 @@ import { HowItWorks } from '../components/marketing/HowItWorks';
 import { Testimonials } from '../components/marketing/Testimonials';
 import { FinalCTA } from '../components/marketing/FinalCTA';
 import { MarketingFooter } from '../components/marketing/MarketingFooter';
+
 export function Marketing() {
-  return <div className="min-h-screen bg-white">
+  return (
+    <div className="min-h-screen bg-white">
       <MarketingNav />
       <div className="pt-16">
         <Hero />
@@ -25,5 +27,6 @@ export function Marketing() {
         <FinalCTA />
         <MarketingFooter />
       </div>
-    </div>;
+    </div>
+  );
 }

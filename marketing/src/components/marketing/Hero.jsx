@@ -1,8 +1,10 @@
 import React from 'react';
 import { ArrowRightIcon, PlayCircleIcon } from 'lucide-react';
 import { Button } from '../ui/Button';
+
 export function Hero() {
-  return <section className="relative bg-gradient-to-br from-red-600 via-red-700 to-black text-white overflow-hidden">
+  return (
+    <section className="relative bg-gradient-to-br from-red-600 via-red-700 to-black text-white overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-32">
@@ -68,5 +70,6 @@ export function Hero() {
           <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
         </svg>
       </div>
-    </section>;
+    </section>
+  );
 }

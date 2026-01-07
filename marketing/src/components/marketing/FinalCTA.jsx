@@ -1,9 +1,17 @@
 import React from 'react';
 import { ArrowRightIcon, CheckCircleIcon } from 'lucide-react';
 import { Button } from '../ui/Button';
+
 export function FinalCTA() {
-  const benefits = ['Free for all IIT students', 'Verified and secure platform', 'Join 2,500+ active students', 'Available on web and mobile'];
-  return <section className="py-20 bg-gradient-to-br from-red-600 via-red-700 to-black text-white relative overflow-hidden">
+  const benefits = [
+    'Free for all IIT students',
+    'Verified and secure platform',
+    'Join 2,500+ active students',
+    'Available on web and mobile'
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-red-600 via-red-700 to-black text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
@@ -30,11 +38,14 @@ export function FinalCTA() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
-          {benefits.map((benefit, index) => <div key={index} className="flex items-center gap-2 justify-center">
+          {benefits.map((benefit, index) => (
+            <div key={index} className="flex items-center gap-2 justify-center">
               <CheckCircleIcon className="w-5 h-5 text-green-300 flex-shrink-0" />
               <span className="text-sm text-red-100">{benefit}</span>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
