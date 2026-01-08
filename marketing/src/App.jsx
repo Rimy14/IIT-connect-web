@@ -258,7 +258,9 @@ export function App() {
               </span>
             </motion.a>
             <motion.a 
-              href="mailto:connect.info34@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=connect.info34@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-full font-bold text-lg transition-all w-full sm:w-auto backdrop-blur-sm hover:border-white/20"
@@ -786,7 +788,9 @@ export function App() {
             Join thousands of IIT students already using IIT Connect to stay organized, connected, and successful.
           </p>
           <motion.a 
-            href="mailto:connect.info34@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=connect.info34@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05, boxShadow: '0 0 50px rgba(220, 38, 38, 0.5)' }}
             whileTap={{ scale: 0.95 }}
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-bold text-lg transition-all shadow-glow"
@@ -889,7 +893,7 @@ export function App() {
               <h4 className="text-white font-semibold mb-4">Get in Touch</h4>
               <ul className="space-y-3 text-sm text-gray-500">
                 <li>
-                  <a href="mailto:connect.info34@gmail.com" className="flex items-center gap-2 hover:text-red-400 transition-colors">
+                  <a href="https://mail.google.com/mail/?view=cm&to=connect.info34@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-red-400 transition-colors">
                     <Mail className="w-4 h-4 text-red-500" />
                     <span>connect.info34@gmail.com</span>
                   </a>
