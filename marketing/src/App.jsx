@@ -245,16 +245,19 @@ export function App() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <motion.button 
+            <motion.a 
+              href="https://youtu.be/pPfBLOnFYh0"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(220, 38, 38, 0.4)' }}
               whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-bold text-lg overflow-hidden w-full sm:w-auto shadow-glow shimmer"
+              className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full font-bold text-lg overflow-hidden w-full sm:w-auto shadow-glow shimmer inline-flex items-center justify-center"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Watch Demo
                 <Zap className="w-5 h-5" />
               </span>
-            </motion.button>
+            </motion.a>
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
               whileTap={{ scale: 0.95 }}
@@ -750,7 +753,7 @@ export function App() {
                   <div className="space-y-3 text-sm text-gray-400">
                     <p className="flex items-center gap-2">
                       <Mail className="w-4 h-4 text-red-500" />
-                      support@iitconnect.lk
+                      connect.info34@gmail.com
                     </p>
                     <p>
                       Informatics Institute of Technology<br />
@@ -885,7 +888,7 @@ export function App() {
               <ul className="space-y-3 text-sm text-gray-500">
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-red-500" />
-                  <span>support@iitconnect.lk</span>
+                  <span>connect.info34@gmail.com</span>
                 </li>
                 <li>
                   <p>Informatics Institute of Technology</p>
